@@ -1,9 +1,9 @@
 <?php  if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 /**
-* ZYA CBT
+* CATEDU
 * Achmad Lutfi
 * achmdlutfi@gmail.com
-* achmadlutfi.wordpress.com
+* CATEDU@sasambo.com
 */
 class Cbt_user_grup_model extends CI_Model{
 	public $table = 'cbt_user_grup';

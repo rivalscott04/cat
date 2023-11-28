@@ -85,7 +85,7 @@
 			?>
         </div>
         <div class="container">
-          <strong>&copy; 2023 achmadlutfi.wordpress.com</strong>
+          <strong>&copy; 2023 CATEDU@sasambo.com</strong>
         </div><!-- /.container -->
       </footer>
     </div><!-- ./wrapper -->

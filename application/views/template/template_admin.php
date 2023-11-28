@@ -138,7 +138,7 @@
           <!-- mini logo for sidebar mini 50x50 pixels -->
           <span class="logo-mini"><b>CBT</b></span>
           <!-- logo for regular state and mobile devices -->
-          <span class="logo-lg"><b>ZYA CBT</b></span>
+          <span class="logo-lg"><b>CATEDU</b></span>
         </a>
 
         <!-- Header Navbar: style can be found in header.less -->
@@ -226,7 +226,7 @@
         <div class="pull-right hidden-xs">
           <b>Version</b> <?php if(!empty($site_version)){ echo $site_version; } ?>
         </div>
-        <strong>&copy; 2023 achmadlutfi.wordpress.com</strong>
+        <strong>&copy; 2023 CATEDU@sasambo.com</strong>
       </footer>
 
     </div><!-- ./wrapper -->

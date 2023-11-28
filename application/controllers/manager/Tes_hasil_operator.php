@@ -1,9 +1,9 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 /**
-* ZYA CBT
+* CATEDU
 * Achmad Lutfi
 * achmdlutfi@gmail.com
-* achmadlutfi.wordpress.com
+* CATEDU@sasambo.com
 */
 class Tes_hasil_operator extends Member_Controller {
 	private $kode_menu = 'tes-hasil-operator';
