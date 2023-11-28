@@ -32,13 +32,13 @@
                             <thead>
                                 <tr>
                                     <th>No.</th>
-                                    <th>Tipe</th>
+                                    <th class="all">Tipe</th>
                                     <th>Parent</th>
                                     <th>Kode Menu</th>
-                                    <th>Nama Menu</th>
+                                    <th class="all">Nama Menu</th>
                                     <th>URL</th>
                                     <th>Icon</th>
-                                    <th>Action</th>
+                                    <th class="all">Action</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -78,7 +78,8 @@
                         {"bSearchable": false, "bSortable": false},
                         {"bSearchable": false, "bSortable": false, "sWidth":"30px"}],
                   "sAjaxSource": "<?php echo current_url();?>/get_all_menu/",
-                  "autoWidth": false
+                  "autoWidth": false,
+				  "responsive": true
          });          
     });
 </script>

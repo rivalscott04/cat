@@ -1,8 +1,8 @@
 <!-- Content Header (Page header) -->
 <section class="content-header">
 	<h1>
-		Mengimport Soal
-		<small>Melakukan Import Soal berdasarkan modul dan topik</small>
+		Mengimport Soal dari Spreadsheet
+		<small>Melakukan Import Soal dari Spreadsheet berdasarkan modul dan topik</small>
 	</h1>
 	<ol class="breadcrumb">
 		<li><a href="<?php echo site_url(); ?>/"><i class="fa fa-dashboard"></i> Home</a></li>
@@ -14,7 +14,7 @@
 <section class="content">
     <div class="row">
 		<?php echo form_open_multipart($url.'/import','id="form-importsoal"'); ?>
-        <div class="col-md-5">
+        <div class="col-md-4">
             <div class="box">
                 <div class="box-header with-border">
                     <div class="box-title">Pilih Topik</div>
@@ -33,10 +33,10 @@
                 </div>
             </div>
         </div>
-		<div class="col-md-7">
+		<div class="col-md-8">
 			<div class="box">
                 <div class="box-header with-border">
-                    <div class="box-title">Import Soal</div>
+                    <div class="box-title">Import Soal dari Spreadsheet</div>
 					<div class="box-tools pull-right">
 						<div class="dropdown pull-right">
 							<a href="<?php echo base_url(); ?>public/form/form-soal-ganda.xls">Form Excel Soal Pilihan Ganda</a>

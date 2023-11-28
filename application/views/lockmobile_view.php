@@ -2,23 +2,17 @@
 <!-- Content Header (Page header) -->
 <section class="content-header">
     <h1>
-        MENGGUNAKAN HP/ANDROID
-    </h1> 
-    <p align="justify">Jika pengen ujian pake HP Android, maka harus menggunakan Exam Browser</p>
+        Gunakan Exam Browser
+        <small> Gunakan Exam Browser untuk mengakses Aplikasi Ujian Online</small>
+    </h1>
 </section>
 
 <!-- Main content -->
 <section class="content">
-    <div class="callout callout-warning">
-		<h4 align="center"><p>DOWNLAOD APK <br> <a href="<?php echo base_url(); ?>public/apk/exambrowser-client.apk" >Klik</a></p></h4>
-        <ol> 
-            <li> Install APK tunggu sampai selesai </li>
-            <li> Jalankan apk </li>
-            <li> Masukan alamat IP address atau domain </li>
-            <font color="black" ><i><b>http://sman2mtr.ip-dynamic.net/cat</b></i></font> di Exam Browser</p>
-            <li>Klik<b><i> LANJUTKAN</i></b> </li>
-        </ol>
-             
+    <div class="callout callout-info">
+        <h4>Informasi</h4>
+        <p>Untuk mengakses Aplikasi Ujian Online ZYACBT menggunakan Android, gunakanlah Exam Browser</p>
+		<p>Download <a href="<?php echo base_url(); ?>public/apk/aplikasi-ujian-online-zyacbt.apk" >Exam Browser</a></p>
     </div>
 </section><!-- /.content -->
 </div>

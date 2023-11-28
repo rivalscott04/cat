@@ -13,6 +13,10 @@ class Tes_daftar extends Member_Controller {
     function __construct(){
 		parent:: __construct();
 		$this->load->model('cbt_tes_model');
+		$this->load->model('cbt_topik_model');
+		$this->load->model('cbt_modul_model');
+		$this->load->model('cbt_tesgrup_model');
+		$this->load->model('cbt_tes_topik_set_model');
 
 		parent::cek_akses($this->kode_menu);
 	}
@@ -164,7 +168,54 @@ class Tes_daftar extends Member_Controller {
             	$record[] = 'Tidak';
             }
 
+			$query_topik = $this->cbt_tes_topik_set_model->get_by_kolom('tset_tes_id', $temp->tes_id);
+			if($query_topik->num_rows()>0){
+				$query_topik = $query_topik->result();
+				$data_soal = '';
+				foreach($query_topik as $topik){
+					$query_topik = $this->cbt_topik_model->get_by_kolom_limit('topik_id', $topik->tset_topik_id, 1)->row();
+					$query_modul = $this->cbt_modul_model->get_by_kolom_limit('modul_id', $query_topik->topik_modul_id, 1)->row();
+					
+					$ket_acak = '';
+					if($topik->tset_acak_soal==1){
+						$ket_acak = $ket_acak.' Acak Soal=YA';
+					}else{
+						$ket_acak = $ket_acak.' Acak Soal=TDK';
+					}
+					if($topik->tset_acak_jawaban==1){
+						$ket_acak = $ket_acak.'; Acak JWB=YA';
+					}else{
+						$ket_acak = $ket_acak.'; Acak JWB=TDK';
+					}
+					
+					if(empty($data_soal)){
+						$data_soal = '['.$query_modul->modul_nama.'] '.$query_topik->topik_nama.' ['.$topik->tset_jumlah.'] ['.$topik->tset_jawaban.']'.$ket_acak;
+					}else{
+						$data_soal = $data_soal.'<br />'.'['.$query_modul->modul_nama.'] '.$query_topik->topik_nama.' ['.$topik->tset_jumlah.'] ['.$topik->tset_jawaban.']'.$ket_acak;
+					}
+				}
+				
+				$record[] = $data_soal;
+			}else{
+				$record[] = 'Belum ada soal';
+			}
             
+			$query_grup = $this->cbt_tesgrup_model->get_by_tes_id($temp->tes_id);
+			if($query_grup->num_rows()>0){
+				$query_grup = $query_grup->result();
+				$data_grup = '';
+				foreach($query_grup as $grup){
+					if(empty($data_grup)){
+						$data_grup = $grup->grup_nama;
+					}else{
+						$data_grup = $data_grup.', '.$grup->grup_nama;
+					}
+				}
+				$record[] = $data_grup;
+			}else{
+				$record[] = 'Belum ada grup';
+			}
+			
             $record[] = '
             	<a onclick="edit(\''.$temp->tes_id.'\')" style="cursor: pointer;" class="btn btn-default btn-xs"><span class="glyphicon glyphicon-edit"></span></a>
             	<a onclick="hapus(\''.$temp->tes_id.'\')" style="cursor: pointer;" class="btn btn-default btn-xs"><span class="glyphicon glyphicon-remove"></a>

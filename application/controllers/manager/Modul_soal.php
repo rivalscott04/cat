@@ -316,7 +316,7 @@ class Modul_soal extends Member_Controller {
 	    	$field_name = 'image-file';
 	        if(!empty($_FILES[$field_name]['name'])){
 		    	$config['upload_path'] = $posisi;
-			    $config['allowed_types'] = 'jpg|png|jpeg';
+			    $config['allowed_types'] = 'jpg|png|jpeg|gif';
 			    $config['max_size']	= '0';
 			    $config['overwrite'] = true;
 			    $config['file_name'] = strtolower($_FILES[$field_name]['name']);
@@ -482,7 +482,7 @@ class Modul_soal extends Member_Controller {
 			$info = pathinfo($temp);
 
 			if(!is_dir($posisi.'/'.$temp)){
-            	if($info['extension']=='jpg' or $info['extension']=='png' or $info['extension']=='jpeg'){
+            	if($info['extension']=='jpg' or $info['extension']=='png' or $info['extension']=='jpeg' or $info['extension']=='gif'){
             		$file_info = get_file_info($posisi.'/'.$temp);
 
             		$record[] = '<a style="cursor:pointer;" onclick="image_preview(\''.$posisi.'\',\''.$temp.'\')">'.$posisi.'/'.$temp.'</a>';

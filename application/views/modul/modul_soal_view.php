@@ -336,9 +336,11 @@
                 $('#hapus-id').val(data.id);
                 $('#hapus-soal').html(data.soal);
                 
+				$("#modal-proses").modal('hide');
                 $("#modal-hapus-soal").modal("show");
-            }
-            $("#modal-proses").modal('hide');
+            }else{
+				$("#modal-proses").modal('hide');
+			}
         });
     }
 

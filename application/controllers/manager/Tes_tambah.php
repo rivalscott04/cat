@@ -409,10 +409,15 @@ class Tes_tambah extends Member_Controller {
             }else{
                 $ket_acak = $ket_acak.'; Acak JWB=TDK';
             }
-
+			
 			$query_topik = $this->cbt_topik_model->get_by_kolom_limit('topik_id', $temp->tset_topik_id, 1)->row();
-
-            $record[] = $query_topik->topik_nama.' ['.$temp->tset_jumlah.'] ['.$temp->tset_jawaban.']'.$ket_acak;
+			$query_modul = $this->cbt_modul_model->get_by_kolom_limit('modul_id', $query_topik->topik_modul_id, 1)->row();
+			
+			if(!empty($query_modul->modul_nama)){
+				$record[] = 'Modul '.$query_modul->modul_nama.'<br />'.$query_topik->topik_nama.' ['.$temp->tset_jumlah.'] ['.$temp->tset_jawaban.']'.$ket_acak;
+			}else{
+				$record[] = $query_topik->topik_nama.' ['.$temp->tset_jumlah.'] ['.$temp->tset_jawaban.']'.$ket_acak;
+			}
             $record[] = '<a onclick="hapus_soal(\''.$temp->tset_id.'\')" title="Hapus Daftar Soal" style="cursor: pointer;" class="btn btn-default btn-xs"><span class="glyphicon glyphicon-remove"></span></a>';
 
 			$output['aaData'][] = $record;

@@ -196,7 +196,7 @@
     }
 
     $(function(){
-        $('#pilih-rentang-waktu').daterangepicker({timePicker: true, timePickerIncrement: 30, format: 'YYYY-MM-DD H:mm'});
+        $('#pilih-rentang-waktu').daterangepicker({timePicker: true, timePickerIncrement: 10, format: 'YYYY-MM-DD H:mm'});
 
 		$("#pilih-status").change(function(){
             if($('#pilih-status').val()=='mengerjakan'){
@@ -280,7 +280,7 @@
                   "iDisplayLength":50,
                   "bProcessing": false,
                   "bServerSide": true, 
-                  "searching": false,
+                  "searching": true,
                   "aoColumns": [
     					{"bSearchable": false, "bSortable": false, "sWidth":"20px"},
     					{"bSearchable": false, "bSortable": false},

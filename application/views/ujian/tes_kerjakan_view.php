@@ -20,7 +20,7 @@
             <input type="hidden" name="tes-soal-nomor" id="tes-soal-nomor"  value="<?php if(!empty($tes_soal_nomor)){ echo $tes_soal_nomor; } ?>">
             <input type="hidden" name="tes-soal-jml" id="tes-soal-jml" value="<?php if(!empty($tes_soal_jml)){ echo $tes_soal_jml; } ?>">
             <input type="hidden" name="tes-soal-ragu" id="tes-soal-ragu" value="<?php if(!empty($tes_ragu)){ echo $tes_ragu; } ?>">
-    		<div class="box box-danger box-solid">
+    		<div class="box box-success box-solid">
                 <div class="box-header with-border">
                     <h3 class="box-title">Soal <span id="judul-soal"><?php if(!empty($tes_soal_nomor)){ echo 'ke '.$tes_soal_nomor; } ?></span></h3>
                     <div class="box-tools pull-right">
@@ -45,7 +45,7 @@
         </form>
     	</div>
         <div class="row">
-            <div class="box box-info box-solid">
+            <div class="box box-success box-solid">
                 <div class="box-header with-border">
                     <h3 class="box-title">Daftar Soal</h3>
                 </div><!-- /.box-header -->
@@ -54,7 +54,7 @@
                     <p class="help-block">Soal yang sudah dijawab akan berwarna Biru.</p>
                 </div><!-- /.box-body -->
                 <div class="box-footer">
-                    <button class="btn btn-default pull-right" id="btn-hentikan">Akhiri Test</button>
+                    <button class="btn btn-default pull-right" id="btn-hentikan">Hentikan Tes</button>
                 </div>
             </div><!-- /.box -->
         </div>
@@ -66,7 +66,7 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <button class="close" type="button" data-dismiss="modal">&times;</button>
-                    <div id="trx-judul">Konfirmasi Akhiri Test</div>
+                    <div id="trx-judul">Konfirmasi Hentikan Tes</div>
                 </div>
                 <div class="modal-body" >
                     <div class="row-fluid">

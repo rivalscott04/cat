@@ -1,12 +1,12 @@
 <!-- Content Header (Page header) -->
 <section class="content-header">
 	<h1>
-		Pengaturan Aplikasi
-		<small>Melakukan pengaturan Identitas Aplikasi</small>
+		Pengaturan ZYACBT
+		<small>Melakukan pengaturan Identitas ZYACBT</small>
 	</h1>
 	<ol class="breadcrumb">
 		<li><a href="<?php echo site_url(); ?>/"><i class="fa fa-dashboard"></i> Home</a></li>
-		<li class="active">Pengaturan Aplikasi</li>
+		<li class="active">Pengaturan ZYACBT</li>
 	</ol>
 </section>
 
@@ -17,7 +17,7 @@
 			<?php echo form_open($url.'/simpan','id="form-pengaturan"'); ?>
                 <div class="box">
                     <div class="box-header with-border">
-    					<div class="box-title">Daftar Pengaturan Aplikasi</div>
+    					<div class="box-title">Daftar Pengaturan ZYACBT</div>
                     </div><!-- /.box-header -->
 
                     <div class="box-body form-horizontal">
@@ -27,7 +27,7 @@
                             <div class="col-sm-8">
 								<input type="text" class="form-control input-sm" id="zyacbt-nama" name="zyacbt-nama" >
                                 <p class="help-block">
-									Nama Pelaksana Pengguna.<br />
+									Nama Pelaksana ZYACBT.<br />
                                     Digunakan sebagai identitas pelaksanaan Tes.
 								</p>
 							</div>
@@ -65,6 +65,16 @@
 								</p>
 							</div>
 						</div>
+						<div class="form-group">
+							<label class="col-sm-4 control-label">Informasi ke Peserta Tes</label>
+                            <div class="col-sm-8">
+								<input type="hidden" name="zyacbt-informasi" id="zyacbt-informasi" >
+								<textarea class="textarea" id="zyacbt_informasi" name="zyacbt_informasi" style="width: 100%; height: 150px; font-size: 13px; line-height: 25px; border: 1px solid #dddddd; padding: 10px;"></textarea>
+                                <p class="help-block">
+									Informasi yang diberikan ke peserta tes di Dashboard Peserta Tes
+								</p>
+							</div>
+						</div>
                     </div>
 					<div class="box-footer">
 						<button type="submit" id="btn-simpan" class="btn btn-primary pull-right">Simpan Pengaturan</button>
@@ -86,15 +96,20 @@
                 $('#zyacbt-keterangan').val(data.cbt_keterangan);
                 $('#zyacbt-link-login').val(data.link_login_operator);
 				$('#zyacbt-mobile-lock-xambro').val(data.mobile_lock_xambro);
+				$('#zyacbt_informasi').val(data.cbt_informasi);
+				$('#zyacbt-informasi').val('');
             }
             $("#modal-proses").modal('hide');
         });
     }
 
     $(function(){
+		CKEDITOR.replace('zyacbt_informasi');
+		
 		load_data();
         $('#form-pengaturan').submit(function(){
             $("#modal-proses").modal('show');
+			$('#zyacbt-informasi').val(CKEDITOR.instances.zyacbt_informasi.getData());
             $.ajax({
                     url:"<?php echo site_url().'/'.$url; ?>/simpan",
                     type:"POST",

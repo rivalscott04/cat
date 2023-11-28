@@ -63,12 +63,11 @@ class Peserta_kartu extends Member_Controller {
 				foreach($query_user AS $temp){
 					$kartu = $kartu.'
 						<div class="kartu">
-							<div class="header">KARTU PESERTA PAS GANJIL<br></div>
-							<div class="header">'.$cbt_nama.'<br>TAHUN PELAJARAN 2023/2024</div>
+							<div class="header">'.$cbt_nama.'</div>
 							<hr />
 							<table>
 								<tr>
-									<td width="95px">Nama Siswa</td>
+									<td width="95px">Nama</td>
 									<td width="5px">:</td>
 									<td width="210px">'.$temp->user_firstname.'</td>
 								</tr>
@@ -83,7 +82,7 @@ class Peserta_kartu extends Member_Controller {
 									<td>'.$temp->user_password.'</td>
 								</tr>
 								<tr>
-									<td>Kelas</td>
+									<td>Grup</td>
 									<td>:</td>
 									<td>'.$group.'</td>
 								</tr>

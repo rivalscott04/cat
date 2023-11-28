@@ -1,17 +1,24 @@
 <div class="container">
 <!-- Content Header (Page header) -->
 <section class="content-header">
-
+    <h1>
+        Selamat Datang
+        <small> di Halaman Login Administrator <?php if(!empty($site_name)){ echo $site_name; } ?></small>
+    </h1>
 </section>
 
 <!-- Main content -->
 <section class="content">
-
+    <div class="callout callout-info">
+        <h4>Informasi</h4>
+        <p>
+            Selamat datang di Halaman Login Aplikasi Computer Based-Test. Untuk memulai silahkan melakukan 
+            proses Login dengan menggunakan username dan password yang sudah dimiliki.
+        </p>
+    </div>
+    
     <div class="row">
-        <div class="col-md-6">    <h1>
-        Selamat Datang <br>
-        <small> di Halaman Login Administrator <?php if(!empty($site_name)){ echo $site_name; } ?></small></h1>
-        </div>
+        <div class="col-md-3"></div>
         <div class="col-md-6">
             <!-- Horizontal Form -->
             <div class="box box-default">

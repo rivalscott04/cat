@@ -126,8 +126,8 @@ class Cbt_user_model extends CI_Model{
 	* datatable untuk hasil tes yang belum mengerjakan
 	*
 	*/
-	function get_datatable_hasiltes($start, $rows, $tes_id, $grup_id, $urutkan, $tanggal, $keterangan){
-        $sql = 'tes_begin_time>="'.$tanggal[0].'" AND tes_end_time<="'.$tanggal[1].'" AND tesuser_id IS NULL';
+	function get_datatable_hasiltes($start, $rows, $tes_id, $grup_id, $urutkan, $tanggal, $keterangan, $search){
+        $sql = 'tes_begin_time>="'.$tanggal[0].'" AND tes_end_time<="'.$tanggal[1].'" AND tesuser_id IS NULL AND user_firstname LIKE "%'.$search.'%"';
 		
         if($tes_id!='semua'){
             $sql = $sql.' AND tes_id="'.$tes_id.'"';
@@ -160,8 +160,8 @@ class Cbt_user_model extends CI_Model{
         return $this->db->get();
 	}
     
-    function get_datatable_hasiltes_count($tes_id, $grup_id, $urutkan, $tanggal, $keterangan){
-        $sql = '(tes_begin_time>="'.$tanggal[0].'" AND tes_end_time<="'.$tanggal[1].'") AND tesuser_id IS NULL';
+    function get_datatable_hasiltes_count($tes_id, $grup_id, $urutkan, $tanggal, $keterangan, $search){
+        $sql = '(tes_begin_time>="'.$tanggal[0].'" AND tes_end_time<="'.$tanggal[1].'") AND tesuser_id IS NULL AND user_firstname LIKE "%'.$search.'%"';
 		
         if($tes_id!='semua'){
             $sql = $sql.' AND tes_id="'.$tes_id.'"';

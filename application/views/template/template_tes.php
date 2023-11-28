@@ -5,6 +5,9 @@
     <title><?php if(!empty($site_name)){ echo $site_name; } ?> | <?php echo $title; ?></title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta content='width=device-width, initial-scale=0.9, minimum-scale=0.1, maximum-scale=10, user-scalable=yes' name='viewport'>
+	<meta name="description" content="Aplikasi Ujian Online ZAYCBT">
+	<meta name="keywords" content="Aplikasi Ujian Online ZYACBT">
+	<meta name="author" content="Achmad Lutfi">
     <!-- Bootstrap 3.3.4 -->
     <link href="<?php echo base_url(); ?>public/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
     <!-- Font Awesome Icons -->
@@ -89,7 +92,7 @@
   </script>
   </head>
   <!-- ADD THE CLASS layout-top-nav TO REMOVE THE SIDEBAR. -->
-  <body class="skin-blue layout-top-nav">
+  <body class="skin-green layout-top-nav">
     <div class="wrapper">
 
       <header class="main-header">               
@@ -149,7 +152,7 @@
           <?php if(!empty($nama)){ echo $nama; } ?> | <strong> <a href="<?php echo site_url(); ?>/welcome/logout" >Log out</a></strong>
         </div>
         <div class="container">
-          <strong>&copy; 2020 educat ver. 3.0</strong>
+          <strong>&copy; 2023 achmadlutfi.wordpress.com</strong>
         </div><!-- /.container -->
       </footer>
     </div><!-- ./wrapper -->

@@ -198,7 +198,7 @@ class Peserta_daftar extends Member_Controller {
             
 			$record[] = ++$i;
             $record[] = $temp->user_name;
-            $record[] = $temp->user_firstname;
+            $record[] = stripslashes($temp->user_firstname);
 
             $query_group = $this->cbt_user_grup_model->get_by_kolom_limit('grup_id', $temp->user_grup_id, 1)->row();
 

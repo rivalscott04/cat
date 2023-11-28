@@ -73,7 +73,7 @@ class Cbt_soal_model extends CI_Model{
 	function get_datatable($start, $rows, $kolom, $isi, $topik){
 		$this->db->where('('.$kolom.' LIKE "%'.$isi.'%" AND soal_topik_id="'.$topik.'")')
                  ->from($this->table)
-				 ->order_by('soal_id', 'DESC')
+				 ->order_by('soal_id', 'ASC')
                  ->limit($rows, $start);
         return $this->db->get();
 	}

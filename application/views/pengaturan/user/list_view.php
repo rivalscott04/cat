@@ -29,13 +29,13 @@
                             <thead>
                                 <tr>
                                     <th>No.</th>
-                                    <th>Username</th>
-                                    <th>Nama</th>
+                                    <th class="all">Username</th>
+                                    <th class="all">Nama</th>
                                     <th>Level</th>
 									<th>Opsi 1</th>
 									<th>Opsi 2</th>
 									<th>Keterangan</th>
-                                    <th>Action</th>
+                                    <th class="all">Action</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -74,7 +74,8 @@
 						{"bSearchable": false, "bSortable": false},
                         {"bSearchable": false, "bSortable": false, "sWidth":"30px"}],
                   "sAjaxSource": "<?php echo current_url();?>/get_all_user/",
-                  "autoWidth": false
+                  "autoWidth": false,
+				  "responsive": true
          });          
     });
 </script>

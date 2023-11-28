@@ -41,6 +41,13 @@ class Welcome extends CI_Controller {
 						if($query_konfigurasi->num_rows()>0){
 							$data['link_login_operator'] = $query_konfigurasi->row()->konfigurasi_isi;
 						}
+						
+						$data['cbt_keterangan'] = "Ujian Online Berbasis Komputer";
+						$query_konfigurasi = $this->cbt_konfigurasi_model->get_by_kolom_limit('konfigurasi_kode', 'cbt_keterangan', 1);
+						if($query_konfigurasi->num_rows()>0){
+							$data['cbt_keterangan'] = $query_konfigurasi->row()->konfigurasi_isi;
+						}
+						
 						$this->template->display_user($this->kelompok.'/welcome_view', 'Selamat Datang', $data);
 					}else{
 						redirect('tes_dashboard');

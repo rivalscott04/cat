@@ -60,6 +60,14 @@ class Cbt_tes_soal_model extends CI_Model{
                  ->order_by('tessoal_order', 'ASC');
         return $this->db->get();
     }
+	
+	function get_by_testuser_order_soal($tesuser_id){
+        $this->db->where('tessoal_tesuser_id="'.$tesuser_id.'"')
+                 ->join('cbt_soal', 'cbt_tes_soal.tessoal_soal_id = cbt_soal.soal_id')
+                 ->from($this->table)
+                 ->order_by('soal_id', 'ASC');
+        return $this->db->get();
+    }
 
     function get_by_testuser_select($tesuser_id, $topik, $select){
         $this->db->select($select)

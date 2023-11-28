@@ -32,23 +32,31 @@ class Tes_dashboard extends Tes_Controller {
         $data['timestamp'] = strtotime(date('Y-m-d H:i:s'));
 
         $username = $this->access_tes->get_username();
-        $user_id = $this->cbt_user_model->get_by_kolom_limit('user_name', $username, 1)->row()->user_id;
-        $query_tes = $this->cbt_tes_user_model->get_by_user_status($user_id);
-        if($query_tes->num_rows()>0){
-        	$query_tes = $query_tes->result();
-        	$tanggal = new DateTime();
-        	foreach ($query_tes as $tes) {
-        		// Cek apakah tes sudah melebihi batas waktu
-            	$tanggal_tes = new DateTime($tes->tesuser_creation_time);
-            	$tanggal_tes->modify('+'.$tes->tes_duration_time.' minutes');
-            	if($tanggal>$tanggal_tes){
-            		// jika waktu sudah melebihi waktu ketentuan, maka status tes diubah menjadi 4
-            		$data_tes['tesuser_status']=4;
-            		$this->cbt_tes_user_model->update('tesuser_id', $tes->tesuser_id, $data_tes);
-            	}
-        	}
-        }
-
+		$query_user = $this->cbt_user_model->get_by_kolom_limit('user_name', $username, 1);
+		if($query_user->num_rows()>0){
+			$user_id = $query_user->row()->user_id;
+			$query_tes = $this->cbt_tes_user_model->get_by_user_status($user_id);
+			if($query_tes->num_rows()>0){
+				$query_tes = $query_tes->result();
+				$tanggal = new DateTime();
+				foreach ($query_tes as $tes) {
+					// Cek apakah tes sudah melebihi batas waktu
+					$tanggal_tes = new DateTime($tes->tesuser_creation_time);
+					$tanggal_tes->modify('+'.$tes->tes_duration_time.' minutes');
+					if($tanggal>$tanggal_tes){
+						// jika waktu sudah melebihi waktu ketentuan, maka status tes diubah menjadi 4
+						$data_tes['tesuser_status']=4;
+						$this->cbt_tes_user_model->update('tesuser_id', $tes->tesuser_id, $data_tes);
+					}
+				}
+			}
+		}
+		
+		$query_info = $this->cbt_konfigurasi_model->get_by_kolom_limit('konfigurasi_kode', 'cbt_informasi', 1);
+		if($query_info->num_rows()>0){
+			$query_info = $query_info->row();
+			$data['informasi'] = $query_info->konfigurasi_isi;
+		}
 
         $this->template->display_tes($this->kelompok.'/tes_dashboard_view', 'Dashboard', $data);
     }
@@ -62,9 +70,6 @@ class Tes_dashboard extends Tes_Controller {
     	if(!empty($tes_id)){
     		$query_tes = $this->cbt_tes_model->get_by_kolom_limit('tes_id', $tes_id, 1);
     		if($query_tes->num_rows()>0){
-    			$qr_token=$this->cbt_tes_token_model->get_by_kolom('token_tes_id', $tes_id);
-    			$qr_token=$qr_token->row();
-    			
     			$query_tes = $query_tes->row();
 
     			$tanggal = new DateTime();
@@ -85,8 +90,6 @@ class Tes_dashboard extends Tes_Controller {
 				        $data['tes_waktu'] = $query_tes->tes_duration_time.' menit';
 				        $data['tes_poin'] = $query_tes->tes_score_right;
 				        $data['tes_max_score'] = $query_tes->tes_max_score;
-				        $data['xtoken'] = $qr_token->token_isi;
-				        
 				        if($query_tes->tes_token==1){
 				        	$data['tes_token'] = '
 				        		<tr style="height: 45px;">
@@ -365,9 +368,18 @@ class Tes_dashboard extends Tes_Controller {
 		$rows = 10;
 
 		$group = $this->access_tes->get_group();
-		$grup_id = $this->cbt_user_grup_model->get_by_kolom_limit('grup_nama', $group, 1)->row()->grup_id;
+		$query_grup = $this->cbt_user_grup_model->get_by_kolom_limit('grup_nama', $group, 1);
+		$grup_id = 0;
+		if($query_grup->num_rows()>0){
+			$grup_id = $query_grup->row()->grup_id;
+		}
+		
 		$username = $this->access_tes->get_username();
-		$user_id = $this->cbt_user_model->get_by_kolom_limit('user_name', $username, 1)->row()->user_id;
+		$query_user = $this->cbt_user_model->get_by_kolom_limit('user_name', $username, 1);
+		$user_id = 0;
+		if($query_user->num_rows()>0){
+			$user_id = $query_user->row()->user_id;
+		}
 
 		// get search value (if any)
 		if (isset($_GET['sSearch']) && $_GET['sSearch'] != "" ) {

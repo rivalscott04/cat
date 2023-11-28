@@ -32,10 +32,10 @@
                             <thead>
                                 <tr>
                                     <th>No.</th>
-                                    <th>Level</th>
+                                    <th class="all">Level</th>
                                     <th>Keterangan</th>
                                     <th>Hak Akses</th>
-                                    <th>Action</th>
+                                    <th class="all">Action</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -69,7 +69,8 @@
                         {"bSearchable": false, "bSortable": false},
                         {"bSearchable": false, "bSortable": false, "sWidth":"30px"}],
                   "sAjaxSource": "<?php echo current_url();?>/get_all_level/",
-                  "autoWidth": false
+                  "autoWidth": false,
+				  "responsive": true
          });          
     });
 </script>

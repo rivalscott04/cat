@@ -37,7 +37,7 @@
                                 <textarea name="tambah-deskripsi" id="tambah-deskripsi" class="form-control input-sm" ></textarea>
                             </div>
                         </div>
-                        <div class="form-group">
+						<div class="form-group">
                             <label class="col-sm-3 control-label">Rentang Waktu</label>
                             <div class="col-sm-9">
                                 <div class="input-group">
@@ -50,22 +50,22 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="col-sm-3 control-label">Waktu Tes</label>
-                            <div class="col-sm-9">
-                                <input type="text" name="tambah-waktu" id="tambah-waktu" class="form-control input-sm" value="30" />
-                                <p class="help-block">Waktu tes dalam satuan menit</p>
-                            </div>
-                        </div>
-                        <div class="form-group">
                             <label class="col-sm-3 control-label">Group</label>
                             <div class="col-sm-9">
-                                <select class="form-control input-sm" id="tambah-group" name="tambah-group[]" size="8" multiple>
+                                <select class="form-control input-sm" id="tambah-group" name="tambah-group[]" size="22" multiple>
                                     <?php if(!empty($select_group)){ echo $select_group; } ?>
                                 </select>
                             </div>
                         </div>
                     </div>
                     <div class="col-xs-6">
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">Waktu Tes</label>
+                            <div class="col-sm-9">
+                                <input type="text" name="tambah-waktu" id="tambah-waktu" class="form-control input-sm" value="30" />
+                                <p class="help-block">Waktu tes dalam satuan menit</p>
+                            </div>
+                        </div>
                         <div class="form-group">
                             <label class="col-sm-3 control-label">Poin Dasar</label>
                             <div class="col-sm-9">
@@ -319,7 +319,7 @@
         $('#soal-tes-id').val('');
 
         $('#kolom-soal').addClass('hide');
-        $('#tambah-nama'),focus();
+        $('#tambah-nama').focus();
     }
 
     $(function(){

@@ -10,7 +10,7 @@
 	<!-- Main content -->
     <section class="content">
         <?php echo form_open($url.'/mulai_tes','id="form-konfirmasi-tes"  class="form-horizontal"'); ?>
-        <div class="box box-warning box-solid">
+        <div class="box box-success box-solid">
             <div class="box-header with-border">
                 <h3 class="box-title">Konfirmasi Data Tes</h3>
             </div><!-- /.box-header -->
@@ -53,7 +53,7 @@
                   </table>
             </div><!-- /.box-body -->
             <div class="box-body">
-                <button type="submit" id="btn-tambah-simpan" class="btn btn-primary pull-right">Mulai</button>
+                <button type="submit" id="btn-tambah-simpan" class="btn btn-primary pull-right">Kerjakan</button>
             </div>
         </div><!-- /.box -->
         </form>

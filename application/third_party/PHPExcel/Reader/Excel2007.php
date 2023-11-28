@@ -1074,7 +1074,9 @@ class PHPExcel_Reader_Excel2007 implements PHPExcel_Reader_IReader
 									// Extract all cell references in $ref
 									$aReferences = PHPExcel_Cell::extractAllCellReferencesInRange($ref);
 									foreach ($aReferences as $reference) {
-										$docSheet->getStyle($reference)->setConditionalStyles($conditionalStyles);
+										//modifikasi lutfi
+										//$docSheet->getStyle($reference)->setConditionalStyles($conditionalStyles);
+										$docSheet->getStyle($reference)->setConditionalStyles('A1', $conditionalStyles);
 									}
 								}
 							}

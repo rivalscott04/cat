@@ -41,6 +41,8 @@
                                     <th class="none">Poin Dasar</th>
                                     <th class="none">Tunjukkan Hasil</th>
                                     <th class="none">Token</th>
+									<th class="none">Soal</th>
+									<th class="none">Grup Peserta</th>
                                     <th class="all"></th>
                                     <th class="all"></th>
                                 </tr>
@@ -50,6 +52,8 @@
                                     <td> </td>
                                     <td> </td>
                                     <td> </td>
+									<td> </td>
+									<td> </td>
                                     <td> </td>
                                     <td> </td>
                                     <td> </td>
@@ -237,6 +241,8 @@
                         {"bSearchable": false, "bSortable": false},
                         {"bSearchable": false, "bSortable": false},
                         {"bSearchable": false, "bSortable": false},
+						{"bSearchable": false, "bSortable": false},
+						{"bSearchable": false, "bSortable": false},
                         {"bSearchable": false, "bSortable": false, "sWidth":"30px"},
                         {"bSearchable": false, "bSortable": false, "sWidth":"20px"}],
                   "sAjaxSource": "<?php echo site_url().'/'.$url; ?>/get_datatable/",
